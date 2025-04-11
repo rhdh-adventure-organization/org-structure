@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: org-structure
+  annotations:
+    github.com/project-slug: rhdh-adventure-organization/org-structure
+spec:
+  type: other
+  lifecycle: unknown
+  owner: user:default/rmarting

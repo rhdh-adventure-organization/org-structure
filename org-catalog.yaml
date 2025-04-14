@@ -34,5 +34,5 @@ metadata:
   name: sample-system
   description: Sample system
 spec:
-  owner: rhdh
+  owner: user:rmarting
   domain: developers

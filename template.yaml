@@ -2,31 +2,43 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: owned-hierarchical-entity-picker
-  title: Owned Hierarchical Entity Picker Demo
-  description: Owned Hierarchical Entity Picker Demo
+  name: hierarchical-entity-picker
+  title: Hierarchical Entity Picker Demo
+  description: Hierarchical Entity Picker Demo
   tags:
-    - demo
-    - custom-components
+    - scaffolder
+    - custom-fields
 spec:
-  owner: user:guest
+  owner: user:rmarting
   type: Demo
 
   # These parameters are used to generate the input form in the frontend, and are
   # used to gather input data for the execution of the template.
   parameters:
-    - title: EntityPickers
+    - title: Custom EntityPickers
       properties:
+        hierarchicalEntityRef:
+          title: HierarchicalEntityPicker - System
+          description: Choose a system from the list to get its components
+          type: object
+          ui:field: HierarchicalEntityPicker
+
         ownedHierarchicalEntityRef:
           title: OwnedHierarchicalEntityPicker - System
-          description: Not yet configurable multi-level picker
+          description: Choose a system of yours to get your components
           type: object
           ui:field: OwnedHierarchicalEntityPicker
 
   # These steps are executed in the scaffolder backend, using data that we gathered
   # via the parameters above.
   steps:
-    - id: debug-log
+    - id: debug-log-hierarchical-entity
+      name: Debug log
+      action: debug:log
+      input:
+        message: "Parent: ${{ parameters.hierarchicalEntityRef.parent }} - Child: ${{ parameters.hierarchicalEntityRef.child }}"
+
+    - id: debug-log-owned-hierarchical-entity
       name: Debug log
       action: debug:log
       input:
@@ -35,7 +47,7 @@ spec:
   # Outputs are displayed to the user after a successful execution of the template.
   output:
     text:
-      - title: Parent Entity
-        content: ${{ parameters.ownedHierarchicalEntityRef.parent }}
-      - title: Child Entity
-        content: ${{ parameters.ownedHierarchicalEntityRef.child }}
+      - title: Hierarchical Entities
+        content: "System Parent: ${{ parameters.hierarchicalEntityRef.parent }} - Component Child: ${{ parameters.hierarchicalEntityRef.parent }}"
+      - title: Owned Hierarchical Entity
+        content: "System Parent: ${{ parameters.ownedHierarchicalEntityRef.parent }} - Component Child: ${{ parameters.ownedHierarchicalEntityRef.child }}"

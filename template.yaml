@@ -33,13 +33,13 @@ spec:
   # via the parameters above.
   steps:
     - id: debug-log-hierarchical-entity
-      name: Debug log
+      name: Debug log - Hierarchical Entity
       action: debug:log
       input:
         message: "Parent: ${{ parameters.hierarchicalEntityRef.parent }} - Child: ${{ parameters.hierarchicalEntityRef.child }}"
 
     - id: debug-log-owned-hierarchical-entity
-      name: Debug log
+      name: Debug log - Owned Hierarchical Entity
       action: debug:log
       input:
         message: "Parent: ${{ parameters.ownedHierarchicalEntityRef.parent }} - Child: ${{ parameters.ownedHierarchicalEntityRef.child }}"

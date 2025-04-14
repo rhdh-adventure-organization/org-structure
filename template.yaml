@@ -1,0 +1,41 @@
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-template
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: owned-hierarchical-entity-picker
+  title: Owned Hierarchical Entity Picker Demo
+  description: Owned Hierarchical Entity Picker Demo
+  tags:
+    - demo
+    - custom-components
+spec:
+  owner: user:guest
+  type: Demo
+
+  # These parameters are used to generate the input form in the frontend, and are
+  # used to gather input data for the execution of the template.
+  parameters:
+    - title: EntityPickers
+      properties:
+        ownedHierarchicalEntityRef:
+          title: OwnedHierarchicalEntityPicker - System
+          description: Not yet configurable multi-level picker
+          type: object
+          ui:field: OwnedHierarchicalEntityPicker
+
+  # These steps are executed in the scaffolder backend, using data that we gathered
+  # via the parameters above.
+  steps:
+    - id: debug-log
+      name: Debug log
+      action: debug:log
+      input:
+        message: "Parent: ${{ parameters.ownedHierarchicalEntityRef.parent }} - Child: ${{ parameters.ownedHierarchicalEntityRef.child }}"
+
+  # Outputs are displayed to the user after a successful execution of the template.
+  output:
+    text:
+      - title: Parent Entity
+        content: ${{ parameters.ownedHierarchicalEntityRef.parent }}
+      - title: Child Entity
+        content: ${{ parameters.ownedHierarchicalEntityRef.child }}

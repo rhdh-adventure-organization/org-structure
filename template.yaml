@@ -9,7 +9,7 @@ metadata:
     - scaffolder
     - custom-fields
 spec:
-  owner: user:rmarting
+  owner: user:development/guest
   type: Demo
 
   # These parameters are used to generate the input form in the frontend, and are
@@ -48,6 +48,6 @@ spec:
   output:
     text:
       - title: Hierarchical Entities
-        content: "System Parent: ${{ parameters.hierarchicalEntityRef.parent }} - Component Child: ${{ parameters.hierarchicalEntityRef.parent }}"
+        content: "System Parent: ${{ parameters.hierarchicalEntityRef.parent }} - Component Child: ${{ parameters.hierarchicalEntityRef.child }}"
       - title: Owned Hierarchical Entity
         content: "System Parent: ${{ parameters.ownedHierarchicalEntityRef.parent }} - Component Child: ${{ parameters.ownedHierarchicalEntityRef.child }}"

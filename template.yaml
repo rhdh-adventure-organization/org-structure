@@ -9,7 +9,7 @@ metadata:
     - scaffolder
     - custom-fields
 spec:
-  owner: user:development/guest
+  owner: user:rmarting
   type: Demo
 
   # These parameters are used to generate the input form in the frontend, and are

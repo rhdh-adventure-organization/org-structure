@@ -19,13 +19,13 @@ spec:
       properties:
         hierarchicalEntityRef:
           title: HierarchicalEntityPicker - System
-          description: Choose a system from the list to get its components
+          description: Choose a system from the list to get its resources
           type: object
           ui:field: HierarchicalEntityPicker
 
         ownedHierarchicalEntityRef:
           title: OwnedHierarchicalEntityPicker - System
-          description: Choose a system of yours to get your components
+          description: Choose a system of yours to get your resources
           type: object
           ui:field: OwnedHierarchicalEntityPicker
 
